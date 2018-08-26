@@ -111,9 +111,9 @@ public class DemoAppConfig implements WebMvcConfigurer{
 	        props.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 	        
 	        return props;                
-	    }
-	
-	// need a helper method 
+	 }
+     
+	 // a helper method 
 	// read environment property and convert to int
 	
 	private int getIntProperty(String propName) {

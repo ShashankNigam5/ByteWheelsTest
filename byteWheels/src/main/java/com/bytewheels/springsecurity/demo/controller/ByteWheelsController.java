@@ -23,7 +23,7 @@ import com.bytewheels.springsecurity.demo.user.BookingDetails;
 import com.bytewheels.springsecurity.demo.user.SearchDetails;
 
 @Controller
-@SessionAttributes("searchResult")
+//@SessionAttributes("searchResult")
 public class ByteWheelsController {
 
 	@Autowired
@@ -37,11 +37,11 @@ public class ByteWheelsController {
 		
 	}*/
 	
-	@ModelAttribute("searchResult")
+	/*@ModelAttribute("searchResult")
 	public SearchDetails setUpDates() {
 		
 		return new SearchDetails();
-	}
+	}*/
 	
 	@RequestMapping(value="/searchAvailableCars",method = RequestMethod.POST)
 	public String showFormForAvailableCars(HttpServletRequest request,Model theModel) {
@@ -49,6 +49,9 @@ public class ByteWheelsController {
 		String theCategory = request.getParameter(("carCategories"));
 		String theStartDate = request.getParameter("bookedFrom1");
 		String theEndDate = request.getParameter("bookedTo1");
+		
+		System.out.println(">>>>>>>booked from   "  + theStartDate);
+		System.out.println(">>>>>>>booked To   "  + theEndDate);
 		List<AvailableCars> theCategoryCars = byteWheelService.getAvailableCars(theCategory,theStartDate,theEndDate);
 		//theCategoryCars.se
 		theModel.addAttribute("availableCars", theCategoryCars);
@@ -60,17 +63,15 @@ public class ByteWheelsController {
 	}
 	
 	@RequestMapping(value ="/showFormForBook",  method = RequestMethod.GET)
-	public String showFormForBook(@SessionAttribute("searchResult") SearchDetails searchResult) {
+	public String showFormForBook(Model theModel) {
 		
-		/*create model attribute to bind form data
+		//create model attribute to bind form data
 		BookingDetails theBookingDetails = new BookingDetails();
-		theBookingDetails.setCarCategory(theSearchDetails.getCarCategory()); 
-		theBookingDetails.setBookedFrom(theSearchDetails.getBookedFrom());
-		theBookingDetails.setBookedTo(theSearchDetails.getBookedTo());
-		theModel.addAttribute("CustomerBooking",theBookingDetails);
-		*/
 		
-		System.out.println("Car category : " + searchResult.getCarCategory());
+		theModel.addAttribute("CustomerBooking",theBookingDetails);
+		
+		
+		//System.out.println("Car category : " + searchResult.getCarCategory());
 		return "bookCar-form";
 	}
 	

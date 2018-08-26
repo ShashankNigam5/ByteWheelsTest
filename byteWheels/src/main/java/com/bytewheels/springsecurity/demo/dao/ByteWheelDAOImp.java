@@ -24,8 +24,10 @@ public class ByteWheelDAOImp implements ByteWheelDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		
-		Query query = currentSession.createQuery("from AvailableCars where carCategory = :category ");
+		Query query = currentSession.createQuery("from AvailableCars where carCategory = :category and (:theStartDate not between bookedFrom and bookedTo) and (:theEndDate not between bookedFrom and bookedTo)");
 		query.setParameter("category", carCategory);
+		query.setParameter("theStartDate", theStartDate);
+		query.setParameter("theEndDate", theEndDate);
 				
 		List<AvailableCars> theAvailableCars = query.list();			
 						

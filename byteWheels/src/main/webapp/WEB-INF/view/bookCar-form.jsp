@@ -54,13 +54,13 @@
 				
 				<tr>
 					<td><label>Start Date: </label></td>
-					<td>${searchResult.bookedFrom} </td>	
+					<td>${searchResult.bookedFrom1} </td>	
 		
 				</tr>
 				
 				<tr>
 					<td><label>End Date: </label></td>
-					<td>${searchResult.bookedTo} </td>	
+					<td>${param.bookedTo} </td>	
 		
 				</tr>
 				
