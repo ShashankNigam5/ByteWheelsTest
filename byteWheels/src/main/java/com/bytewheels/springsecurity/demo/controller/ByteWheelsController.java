@@ -23,7 +23,7 @@ import com.bytewheels.springsecurity.demo.user.BookingDetails;
 import com.bytewheels.springsecurity.demo.user.SearchDetails;
 
 @Controller
-@SessionAttributes("SearchDeatils")
+//@SessionAttributes("SearchDeatils")
 public class ByteWheelsController {
 
 	@Autowired
@@ -37,18 +37,19 @@ public class ByteWheelsController {
 		
 	}*/
 	
-	@ModelAttribute("SearchDeatils")
+	/*@ModelAttribute("SearchDeatils")
 	public SearchDetails setUpDates() {
 		
 		return new SearchDetails();
-	}
+	}*/
 	
+	/*
 	@RequestMapping(value="/showFormForBook",method = RequestMethod.GET)
 	public String getBookingDates(@ModelAttribute("SearchDeatils") SearchDetails searchDeatils, Model theModel) {
 		
 		theModel.addAttribute("SearchDeatils",searchDeatils);
 		return "bookCar-form";
-	}
+	}*/
 	
 	@RequestMapping(value="/searchAvailableCars",method = RequestMethod.POST)
 	public String showFormForAvailableCars(HttpServletRequest request,Model theModel) {
@@ -69,7 +70,7 @@ public class ByteWheelsController {
 		
 	}
 	
-	@RequestMapping(value ="/showFormForBook",  method = RequestMethod.POST)
+	@RequestMapping(value ="/showFormForBook",  method = RequestMethod.GET)
 	public String showFormForBook(Model theModel) {
 		
 		//create model attribute to bind form data

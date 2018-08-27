@@ -32,15 +32,13 @@ public class BookingDetails {
 	@Column(name="BookedCarNAME")
 	private String bookedCarName;
 	
-	@NotNull(message = "is required")
+	
 	@Column(name="CarCategory")
 	private String carCategory;
 	
-	@NotNull(message = "is required")
 	@Column(name="BookedFROM")
 	private String bookedFrom;
 	
-	@NotNull(message = "is required")
 	@Column(name="BookedTO")
 	private String bookedTo;
 	
