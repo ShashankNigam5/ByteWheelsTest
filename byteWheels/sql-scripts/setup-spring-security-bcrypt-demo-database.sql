@@ -56,4 +56,35 @@ VALUES
 ('susan','ROLE_EMPLOYEE'),
 ('susan','ROLE_ADMIN');
 
+--
+-- Table Structure for table 'availcars'
+DROP TABLE IF EXISTS `availcars`;
+CREATE TABLE `availcars` (
+  `UNIQUECarID` varchar(5) NOT NULL,
+  `CarNAME` varchar(50) DEFAULT NULL,
+  `CarCATegory` varchar(50) DEFAULT NULL,
+  `ISAVAIL` varchar(10) DEFAULT 'Y',
+  `BOOKED_DATE_FROM` varchar(50) DEFAULT NULL,
+  `Rate` int(11) DEFAULT NULL,
+  `BOOKED_DATE_TO` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--Table Structure for table 'bookedcars'
+DROP TABLE IF EXISTS `bookingdetails`;
+CREATE TABLE `bookingdetails` (
+  `BookingID` int(11) NOT NULL AUTO_INCREMENT,
+  `BookedCarID` varchar(10) DEFAULT NULL,
+  `BookedCarNAME` varchar(50) DEFAULT NULL,
+  `BookedFROM` varchar(50) DEFAULT NULL,
+  `BookedTO` varchar(50) DEFAULT NULL,
+  `AMOUNT_TOBE_PAID` mediumtext,
+  `CarCategory` varchar(45) DEFAULT NULL,
+  `CustomerName` varchar(45) DEFAULT NULL,
+  `Email` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`BookingID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+
 
