@@ -32,7 +32,7 @@
 	<hr>
 	
 	<form:form action="${pageContext.request.contextPath}/searchAvailableCars" 
-						  method="POST" class="form-horizontal" modelAttribute="searchResult">
+						  method="POST" class="form-horizontal" modelAttribute="SearchDeatils">
 	<div class="row">
 	<div class="input-group">
 	<div class= "col-sm-4 ">					  
